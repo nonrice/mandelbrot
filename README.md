@@ -23,7 +23,4 @@ Make sure SDL2 is installed. Then run `make` in the project root. The binary wil
 &nbsp;&nbsp;&nbsp;&nbsp;Set number of threads to use. Defaults to the return value of `std::thread::hardware_concurrency()`.
 
 ### Notes
-Calculating the image at a fast refresh rate is very computationally expensive, so framerate drops are almost guaranteed to appear.
-
 Floating point precision will prevent resolution from increasing once magnified past a certain point.
-
