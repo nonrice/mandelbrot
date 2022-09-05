@@ -9,6 +9,19 @@ Make sure SDL2 is installed. Then run `make` in the project root. The binary wil
 - `W` and `S`: Zoom in and out
 - Arrow keys: Move around
 
+### Command Line Options
+**-h** *height*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set height of window. Defaults to `300`.
+
+**-w** *width*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set width of window. Defaults to `400`.
+
+**-i** *iterations*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set maximum iterations to process when evaluating a point. Defaults to `500`.
+
+**-t** *threads*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Set number of threads to use. Defaults to the return value of `std::thread::hardware_concurrency()`.
+
 ### Notes
 Calculating the image at a fast refresh rate is very computationally expensive, so framerate drops are almost guaranteed to appear.
 

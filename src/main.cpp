@@ -2,18 +2,28 @@
 #include <cmath>
 #include <thread>
 #include <iomanip>
+#include <unistd.h>
+#include <cstdlib>
 
 #include <SDL.h>
 #include "tinycolormap.hpp"
 #include "mandelbrot.hpp"
 
-int main(){
-    const int w=400;
-    const int h=300;
-    const int iterations = 500;
-    const int thread_c = std::thread::hardware_concurrency();
-
-    std::cout << "[init] Detected threads: " << thread_c << '\n';
+int main(int argc, char** argv){
+    int w=400;
+    int h=300;
+    int iterations = 500;
+    int thread_c = std::thread::hardware_concurrency();
+    
+    int opt;
+    while ((opt = getopt(argc, argv, "w:h:t:i:")) != -1){
+        if (opt == 'w') w = std::atoi(optarg);
+        else if (opt == 'h') h = std::atoi(optarg);
+        else if (opt == 't') thread_c = std::atoi(optarg);
+        else if (opt == 'i') iterations = std::atoi(optarg);
+    }
+    
+    std::cout << "[init] Starting with params: h=" << h << " w=" << w << " iterations=" << iterations << " thread_c=" << thread_c << '\n';
     if (SDL_Init(SDL_INIT_VIDEO) == 0) std::cout << "[init] Successfully initialized SDL\n";
     else {
         std::cout << "[init] Failed to initialize SDL\n";
