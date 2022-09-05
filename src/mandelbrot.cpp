@@ -1,8 +1,6 @@
 #include <thread>
 #include <vector>
 
-//double pix_its = get_pixel((x-w/2)/zoom + vx, (y-h/2)/zoom + vy, 500);
-
 int get_pixel(long double x, long double y, int iterations){
     long double cx=x, cy=y;
     for (int it=0; it<iterations; ++it){
