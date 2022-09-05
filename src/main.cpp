@@ -8,8 +8,8 @@
 #include "mandelbrot.hpp"
 
 int main(){
-    const int w=800;
-    const int h=600;
+    const int w=400;
+    const int h=300;
     const int iterations = 500;
     const int thread_c = std::thread::hardware_concurrency();
 
