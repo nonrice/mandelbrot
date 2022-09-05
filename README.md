@@ -1,6 +1,6 @@
 # Eric's Mandelbrot Set Renderer 
 
-Realtime Mandelbrot Set renderer.
+Realtime interactive Mandelbrot Set renderer.
 
 ### Building
 Make sure SDL2 is installed. Then run `make` in the project root. The binary will be located in the `bin` folder.
