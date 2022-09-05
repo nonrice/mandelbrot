@@ -17,10 +17,19 @@ int main(int argc, char** argv){
     
     int opt;
     while ((opt = getopt(argc, argv, "w:h:t:i:")) != -1){
-        if (opt == 'w') w = std::atoi(optarg);
-        else if (opt == 'h') h = std::atoi(optarg);
-        else if (opt == 't') thread_c = std::atoi(optarg);
-        else if (opt == 'i') iterations = std::atoi(optarg);
+        if (optarg == NULL) return 1;
+
+        int arg = std::atoi(optarg);
+        if (arg <= 0){
+            std::cout << "[init] Invalid value for option \"" << char(opt) << "\"\n";
+            return 1;
+        }
+
+        if (opt == 'w') w = arg;
+        else if (opt == 'h') h = arg;
+        else if (opt == 't') thread_c = arg;
+        else if (opt == 'i') iterations = arg;
+
     }
     
     std::cout << "[init] Starting with params: h=" << h << " w=" << w << " iterations=" << iterations << " thread_c=" << thread_c << '\n';
